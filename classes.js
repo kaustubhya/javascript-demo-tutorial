@@ -114,20 +114,62 @@
 // console.log(numbers);
 
 
-Array.prototype.myPush = function(item){
-  // return this;   // returns array
-  // return item;
-  this[this.length] = item;
-  return this;
+// Array.prototype.myPush = function(item){
+//   // return this;   // returns array
+//   // return item;
+//   this[this.length] = item;
+//   return this;
+// }
+
+// const fruits = ['🍌','🍈', '🍑','🍎'];
+// fruits.myPush('🍇');
+// fruits.myPush('🍭');
+// fruits.myPush('🐻');
+// fruits.myPush('(❁´◡`❁)');
+// fruits.myPush('😎');
+// console.log(fruits);
+
+class Bank {
+  constructor(balance) {
+    this.balance = balance;
+  }  
+
+  withdrawl(amount) {
+    if(this.balance - amount < 0){
+      console.log("You can't withdraw this much amount");
+    console.log({balance: this.balance}); 
+      return
+    }
+    this.balance -= amount;
+    console.log("withdrawn: " + `$${amount}`)
+    console.log({balance: this.balance}); 
+    
+    
+  }
+
+  deposit(amount) {
+    this.balance += amount;
+    console.log("deposited: " + `$${amount}`)
+    console.log({balance: this.balance}); 
+      
+  }
 }
 
-const fruits = ['🍌','🍈', '🍑','🍎'];
-fruits.myPush('🍇');
-fruits.myPush('🍭');
-fruits.myPush('🐻');
-fruits.myPush('(❁´◡`❁)');
-fruits.myPush('😎');
-console.log(fruits);
+const ksdChecksIn = new Bank(150);
+console.log(ksdChecksIn.balance);
+ksdChecksIn.deposit(50);
+ksdChecksIn.withdrawl(30);
+ksdChecksIn.withdrawl(300);
+
+
+
+
+
+
+
+
+
+
 
 
 
